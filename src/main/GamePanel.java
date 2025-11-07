@@ -17,6 +17,8 @@ public class GamePanel extends JPanel implements Runnable{
     final int maxheight=maxrows*tilesize;
     final int maxwidth=maxcolumns*tilesize;
 
+    Thread gamethread;
+ 
     public GamePanel()
     {
         this.setPreferredSize(new DimensionUIResource(maxwidth,maxheight));
@@ -26,10 +28,23 @@ public class GamePanel extends JPanel implements Runnable{
         
     }
 
+
+
+    public void StratThread()
+    {
+        gamethread= new Thread(this);
+        gamethread.start();
+    }
+
     @Override
     public void run() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'run'");
+
+        while(gamethread!=null)
+        {
+            System.out.println("game loop is running");
+        }
+      
+
     }
 
 }
